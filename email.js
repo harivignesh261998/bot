@@ -1,4 +1,10 @@
 var nodemailer = require('nodemailer');
+var number=[];
+
+for(let i=0;i<4;i++){
+   number+=Math.floor(Math.random()*10);
+   console.log(number)
+}
 
 var transporter = nodemailer.createTransport({
   service: 'aol',
@@ -12,7 +18,8 @@ var mailOptions = {
   from: 'harivignesh260998@aol.com',
   to: 'harivignesh261998@gmail.com',
   subject: 'Sending Email using Node.js',
-  text: 'That was easy!'
+  html:'<h1>'+number+'</h1>'
+  
 };
 
 transporter.sendMail(mailOptions, function(error, info){
